@@ -6,7 +6,8 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel
 {
-	private int panelValue;
+	private int x;
+	private int y;
 	
 	public GamePanel()
 	{
@@ -15,13 +16,21 @@ public class GamePanel extends JPanel
 		setVisible(true);
 	}
 	
-	public int getPanelValue()
+	public int getX()
 	{
-		return panelValue;
+		return x;
 	}
-	public void setPanelValue(int panelValue)
+	public void setX(int x)
 	{
-		this.panelValue = panelValue;
+		this.x = x;
+	}
+	public int getY()
+	{
+		return y;
+	}
+	public void setY(int y)
+	{
+		this.y = y;
 	}
 	
 
