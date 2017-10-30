@@ -1,4 +1,4 @@
-package inlämningsuppgift1.copy6;
+package inlämningsuppgift1.copy.copy;
 
 public class Dog extends Animal {
 
@@ -7,11 +7,9 @@ public class Dog extends Animal {
 	{
 		return Math.round(getWeight()*10);
 	}
-	
-	@Override
 	public String getFoodType()
 	{
-		return AnimalFood.HUNDFODER.getName();
+		return "Dog food";
 	}
 	
 	public Dog(String name, int weight) {

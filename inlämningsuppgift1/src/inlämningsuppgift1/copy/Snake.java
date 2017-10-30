@@ -1,4 +1,4 @@
-package inlämningsuppgift1.copy6;
+package inlämningsuppgift1.copy;
 
 public class Snake extends Animal
 {
@@ -8,11 +8,9 @@ public class Snake extends Animal
 	{
 		return 20;
 	}
-	
-	@Override
 	public String getFoodType()
 	{
-		return AnimalFood.ORMPELLETS.getName();
+		return "Snake food";
 	}
 	
 	public Snake(String name, int weight) {
