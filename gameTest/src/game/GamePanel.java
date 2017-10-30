@@ -3,6 +3,9 @@ package game;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -26,6 +29,7 @@ public class GamePanel extends JPanel
 	private JButton button13;
 	private JButton button14;
 	private JButton button15;
+	private List<JButton> buttonList;
 	
 	
 	
@@ -67,73 +71,127 @@ public class GamePanel extends JPanel
 		button15.setIcon(new ImageIcon("15.png"));
 		
 		GridBagConstraints gc = new GridBagConstraints();
+		buttonList = shuffle();
 		
-		gc.gridx = 0;
-		gc.gridy = 0;
 		gc.weightx = 1;
 		gc.weighty = 1;
 		gc.fill = GridBagConstraints.NONE;
-		add(button1, gc);
+		
+		for(int i=0; i<4;i++)
+		{
+			for (int j=0; j<4; j++)
+			{
+				gc.gridy = i;
+				gc.gridx = j;
+				
+				if(!buttonList.isEmpty())
+					add(buttonList.remove(0), gc);
+			}
+		}
+		
+	
+		
+//		gc.gridx = 0;
+//		gc.gridy = 0;
+//		add(buttonList.remove(0), gc);
+//		
+//		
+//		
+//		gc.gridx = 1;
+//		gc.gridy = 0;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 2;
+//		gc.gridy = 0;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 3;
+//		gc.gridy = 0;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 0;
+//		gc.gridy = 1;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 1;
+//		gc.gridy = 1;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 2;
+//		gc.gridy = 1;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 3;
+//		gc.gridy = 1;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 0;
+//		gc.gridy = 2;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 1;
+//		gc.gridy = 2;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 2;
+//		gc.gridy = 2;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 3;
+//		gc.gridy = 2;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 0;
+//		gc.gridy = 3;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 1;
+//		gc.gridy = 3;
+//		add(buttonList.remove(0), gc);
+//		
+//		gc.gridx = 2;
+//		gc.gridy = 3;
+//		add(buttonList.remove(0), gc);
+//		
 		
 		
 		
-		gc.gridx = 1;
-		gc.gridy = 0;
-		add(button2, gc);
-		
-		gc.gridx = 2;
-		gc.gridy = 0;
-		add(button3, gc);
-		
-		gc.gridx = 3;
-		gc.gridy = 0;
-		add(button4, gc);
-		
-		gc.gridx = 0;
-		gc.gridy = 1;
-		add(button5, gc);
-		
-		gc.gridx = 1;
-		gc.gridy = 1;
-		add(button6, gc);
-		
-		gc.gridx = 2;
-		gc.gridy = 1;
-		add(button7, gc);
-		
-		gc.gridx = 3;
-		gc.gridy = 1;
-		add(button8, gc);
-		
-		gc.gridx = 0;
-		gc.gridy = 2;
-		add(button9, gc);
-		
-		gc.gridx = 1;
-		gc.gridy = 2;
-		add(button10, gc);
-		
-		gc.gridx = 2;
-		gc.gridy = 2;
-		add(button11, gc);
-		
-		gc.gridx = 3;
-		gc.gridy = 2;
-		add(button12, gc);
-		
-		gc.gridx = 0;
-		gc.gridy = 3;
-		add(button13, gc);
-		
-		gc.gridx = 1;
-		gc.gridy = 3;
-		add(button14, gc);
-		
-		gc.gridx = 2;
-		gc.gridy = 3;
-		add(button15, gc);
 		
 		
+	}
+	
+	public List<JButton> shuffle()
+	{
+		List<JButton> originalList = new ArrayList();
+		List<JButton> returnedList = new ArrayList();
+		Random rand = new Random();
+		
+		originalList.add(button1);
+		originalList.add(button2);
+		originalList.add(button3);
+		originalList.add(button4);
+		originalList.add(button5);
+		originalList.add(button6);
+		originalList.add(button7);
+		originalList.add(button8);
+		originalList.add(button9);
+		originalList.add(button10);
+		originalList.add(button11);
+		originalList.add(button12);
+		originalList.add(button13);
+		originalList.add(button14);
+		originalList.add(button15);
+		
+		for(int i=0; i<15; i++)
+		{
+			returnedList.add(originalList.remove(rand.nextInt(originalList.size())));
+		}
+		
+		
+		
+		return returnedList;
+		
+
 	}
 
 }
