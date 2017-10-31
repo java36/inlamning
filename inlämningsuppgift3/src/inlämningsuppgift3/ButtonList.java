@@ -1,6 +1,7 @@
 package inlämningsuppgift3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.ImageIcon;
@@ -73,6 +74,8 @@ public class ButtonList
 		fifteenBtn = new JButton(); 
 		fifteenBtn.setIcon(new ImageIcon("15.png"));
 		buttonList.add(fifteenBtn);
+		
+		Collections.shuffle(buttonList);
 	}
 	
 	public List<JButton> getButtonList()
