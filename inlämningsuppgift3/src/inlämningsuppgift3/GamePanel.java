@@ -8,6 +8,7 @@ public class GamePanel extends JPanel
 {
 	private int x;
 	private int y;
+	private boolean hasButton;
 	
 	public GamePanel()
 	{
@@ -31,6 +32,15 @@ public class GamePanel extends JPanel
 	public void setY(int y)
 	{
 		this.y = y;
+	}
+	
+	public boolean getHasButton()
+	{
+		return hasButton;
+	}
+	public void setHasButton(boolean hasButton)
+	{
+		this.hasButton = hasButton;
 	}
 	
 

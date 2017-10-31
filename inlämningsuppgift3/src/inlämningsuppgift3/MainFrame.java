@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 public class MainFrame extends JFrame
 {
 	GamePanelList gamePanelList = new GamePanelList();
+	ButtonList buttonList = new ButtonList();
 	
 	public MainFrame()
 	{
