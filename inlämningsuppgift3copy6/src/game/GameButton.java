@@ -4,16 +4,28 @@ import javax.swing.JButton;
 
 public class GameButton extends JButton
 {
-	private int value;
+	private int buttonValue;
+	private int buttonX;
+	private int buttonY;
 	
-	public void setValue(int value)
+	public int getButtonX() 
 	{
-		this.value = value;
+		return buttonX;
+	}
+
+	public int getButtonY() 
+	{
+		return buttonY;
+	}
+
+	public void setButtonValue(int value)
+	{
+		this.buttonValue = value;
 	}
 	
-	public int getValue()
+	public int getButtonValue()
 	{
-		return value;
+		return buttonValue;
 	}
 	
 	public GameButton()
@@ -21,9 +33,11 @@ public class GameButton extends JButton
 		
 	}
 	
-	public GameButton(int value)
+	public GameButton(int buttonValue, int buttonX, int buttonY)
 	{
-		this.value = value;
+		this.buttonValue = buttonValue;
+		this.buttonX = buttonX;
+		this.buttonY = buttonY;
 	}
 
 }
