@@ -358,7 +358,7 @@ public class GamePanel extends JPanel
 		@Override
 		public void actionPerformed(ActionEvent e) 
 		{
-			boolean win = false;
+			int isMatch = 0;
 			gameButtonList = new ArrayList<>();
 			GameButton button = (GameButton) e.getSource();
 			int value = button.getButtonValue();
@@ -398,24 +398,26 @@ public class GamePanel extends JPanel
 			{
 				if(b.getGameIcon().getIconValue() == b.getButtonValue())
 					b.setBackground(Color.GREEN);
+				else
+					b.setBackground(Color.WHITE);
 			}
 			
-			for(int i=0; i<17; i++)
+			for(int i=0; i<16; i++)
 			{
 				if(invisibleButton.equals(button16))
 				{
+					
 					if(gameButtonList.get(i).getGameIcon() != null)
 					{
 						if(gameButtonList.get(i).getGameIcon().getIconValue() == gameButtonList.get(i).getButtonValue())
 						{
-							win = true;
-							break;
+							isMatch++;
 						}					
 					}					
 				}
 			}
 			
-			if(win)
+			if(isMatch == 16)
 			{
 				winGame.gameWon();
 			}
