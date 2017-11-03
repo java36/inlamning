@@ -12,8 +12,10 @@ public class OptionPanel extends JPanel
 	private JButton newGameBtn;
 	private JButton quitBtn;
 	private JButton solveBtn;
+	private JButton shuffleBtn;
 	
 	private ButtonListener buttonListener;
+	OptionListener optionListener = new OptionListener();
 	
 	public OptionPanel()
 	{
@@ -22,17 +24,26 @@ public class OptionPanel extends JPanel
 		
 		newGameBtn = new JButton("New       ");
 		quitBtn = new JButton("Quit        ");
+		shuffleBtn = new JButton("Shuffle  ");
 		solveBtn = new JButton("Solve     ");
 		
-		OptionListener optionListener = new OptionListener();
 		newGameBtn.addActionListener(optionListener);	
 		quitBtn.addActionListener(optionListener);
+		shuffleBtn.addActionListener(optionListener);
 		solveBtn.addActionListener(optionListener);
 		
 		
 		add(newGameBtn);
 		add(quitBtn);
+		add(shuffleBtn);
 		add(solveBtn);
+	}
+	
+	public void stop()
+	{
+		quitBtn.removeActionListener(optionListener);
+		shuffleBtn.removeActionListener(optionListener);
+		solveBtn.removeActionListener(optionListener);
 	}
 	
 	private class OptionListener implements ActionListener

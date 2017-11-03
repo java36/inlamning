@@ -349,7 +349,26 @@ public class GamePanel extends JPanel
 		
 		
 	}
-	
+	public void stop()
+	{
+		button1.removeActionListener(listener);
+		button2.removeActionListener(listener);
+		button3.removeActionListener(listener);
+		button4.removeActionListener(listener);
+		button5.removeActionListener(listener);
+		button6.removeActionListener(listener);
+		button7.removeActionListener(listener);
+		button8.removeActionListener(listener);
+		button9.removeActionListener(listener);
+		button10.removeActionListener(listener);
+		button11.removeActionListener(listener);
+		button12.removeActionListener(listener);
+		button13.removeActionListener(listener);
+		button14.removeActionListener(listener);
+		button15.removeActionListener(listener);
+		button16.removeActionListener(listener);
+		
+	}
 	
 	
 	class Listener implements ActionListener
@@ -402,9 +421,9 @@ public class GamePanel extends JPanel
 					b.setBackground(Color.WHITE);
 			}
 			
-			for(int i=0; i<16; i++)
+			if(invisibleButton.equals(button16))
 			{
-				if(invisibleButton.equals(button16))
+				for(int i=0; i<16; i++)
 				{
 					
 					if(gameButtonList.get(i).getGameIcon() != null)
@@ -417,9 +436,10 @@ public class GamePanel extends JPanel
 				}
 			}
 			
-			if(isMatch == 16)
+			if(isMatch == 15)
 			{
 				winGame.gameWon();
+				
 			}
 			
 		}

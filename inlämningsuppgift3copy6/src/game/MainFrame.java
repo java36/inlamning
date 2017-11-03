@@ -55,7 +55,8 @@ public class MainFrame extends JFrame implements ButtonListener, WinGame
 	}
 	public void quit()
 	{
-		gamePanel.setVisible(false);
+		gamePanel.stop();
+		optionPanel.stop();
 		messagePanel.setLabel("LOOOOOSER!");
 	}
 
@@ -70,6 +71,8 @@ public class MainFrame extends JFrame implements ButtonListener, WinGame
 	{
 		messagePanel.setLabel("You Win!!!");
 		gamePanel.gameWon();
+		gamePanel.stop();
+		optionPanel.stop();
 		
 	}
 	
