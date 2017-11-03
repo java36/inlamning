@@ -7,7 +7,17 @@ public class GameButton extends JButton
 	private int buttonValue;
 	private int buttonX;
 	private int buttonY;
+	private GameIcon gameIcon;
 	
+	public GameIcon getGameIcon() {
+		return gameIcon;
+	}
+
+	public void setGameIcon(GameIcon gameIcon) {
+		setIcon(gameIcon);
+		this.gameIcon = gameIcon;
+	}
+
 	public int getButtonX() 
 	{
 		return buttonX;

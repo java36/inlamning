@@ -35,10 +35,13 @@ public class GameIcon extends ImageIcon
 	
 	public GameIcon(int iconValue, int iconX, int iconY)
 	{
+	
 		this.iconValue = iconValue;
 		this.iconX = iconX;
 		this.iconY = iconY;
 	}
+	
+	
 	
 	
 	

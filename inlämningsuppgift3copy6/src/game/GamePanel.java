@@ -5,11 +5,15 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,13 +22,10 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel 
 {
 	
-	private String panelMessage = "15 Puzzle";
-	private IconList ilObject = new IconList();
-	private IconList ilObject2 = new IconList();
+	private List<GameButton> gameButtonList;
 	
-	private List<Icon> iconList;
-	private List<Icon> iconList2;
-	
+	private WinGame winGame;
+		
 	private GameButton button1;
 	private GameButton button2;
 	private GameButton button3;
@@ -44,18 +45,39 @@ public class GamePanel extends JPanel
 	
 	private GameButton invisibleButton;
 	
+	private GameIcon icon1;
+	private GameIcon icon2;
+	private GameIcon icon3;
+	private GameIcon icon4;
+	private GameIcon icon5;
+	private GameIcon icon6;
+	private GameIcon icon7;
+	private GameIcon icon8;
+	private GameIcon icon9;
+	private GameIcon icon10;
+	private GameIcon icon11;
+	private GameIcon icon12;
+	private GameIcon icon13;
+	private GameIcon icon14;
+	private GameIcon icon15;
+	
+	//Object of the ActionListener class
 	Listener listener = new Listener();
 	
+	public void setWinGame(WinGame winGame)
+	{
+		this.winGame = winGame;
+	}
 	
 	
-	public GamePanel()
+	
+	public GamePanel() throws IOException
 	{
 		setBackground(Color.WHITE);
 		setLayout(new GridBagLayout());
 		setSize(360,250);
 		
-		iconList = ilObject.getIconList();
-		Collections.shuffle(iconList);
+		
 		
 		
 		GridBagConstraints gc = new GridBagConstraints();
@@ -69,8 +91,12 @@ public class GamePanel extends JPanel
 		gc.gridx = 0;
 		gc.gridy = 0;
 		
-		button1 = new GameButton(1);
-		button1.setIcon(iconList.remove(0));
+		button1 = new GameButton(1, 0, 0);
+		icon1 = new GameIcon(1, 0, 0);
+		BufferedImage image1 = ImageIO.read(new File("1.png"));
+		icon1.setImage(image1);
+		button1.setGameIcon(icon1);
+		icon1.setGameButton(button1);
 		button1.addActionListener(listener);
 		add(button1, gc);
 		
@@ -78,24 +104,33 @@ public class GamePanel extends JPanel
 		gc.gridx = 1;
 		gc.gridy = 0;
 		
-		button2 = new GameButton(2);
-		button2.setIcon(iconList.remove(0));
+		button2 = new GameButton(2, 1, 0);
+		icon2 = new GameIcon(2,1,0);
+		icon2.setImage(ImageIO.read(new File("2.png")));
+		button2.setGameIcon(icon2);
+		icon2.setGameButton(button2);
 		button2.addActionListener(listener);
 		add(button2, gc);
 		
 		gc.gridx = 2;
 		gc.gridy = 0;
 		
-		button3 = new GameButton(3);
-		button3.setIcon(iconList.remove(0));
+		button3 = new GameButton(3,2,0);
+		icon3 = new GameIcon(3,2,0);
+		icon3.setImage(ImageIO.read(new File("3.png")));
+		button3.setGameIcon(icon3);
+		icon3.setGameButton(button3);
 		button3.addActionListener(listener);
 		add(button3, gc);
 		
 		gc.gridx = 3;
 		gc.gridy = 0;
 		
-		button4 = new GameButton(4);
-		button4.setIcon(iconList.remove(0));
+		button4 = new GameButton(4,3,0);
+		icon4 = new GameIcon(4,3,0);
+		icon4.setImage(ImageIO.read(new File("4.png")));
+		button4.setGameIcon(icon4);
+		icon4.setGameButton(button4);
 		button4.addActionListener(listener);
 		add(button4, gc);
 		
@@ -104,32 +139,44 @@ public class GamePanel extends JPanel
 		gc.gridx = 0;
 		gc.gridy = 1;
 		
-		button5 = new GameButton(5);
-		button5.setIcon(iconList.remove(0));
+		button5 = new GameButton(5,0,1);
+		icon5 = new GameIcon(5,0,1);
+		icon5.setImage(ImageIO.read(new File("5.png")));
+		button5.setGameIcon(icon5);
+		icon5.setGameButton(button5);
 		button5.addActionListener(listener);
 		add(button5, gc);
 		
 		gc.gridx = 1;
 		gc.gridy = 1;
 		
-		button6 = new GameButton(6);
-		button6.setIcon(iconList.remove(0));
+		button6 = new GameButton(6,1,1);
+		icon6 = new GameIcon(6,1,1);
+		icon6.setImage(ImageIO.read(new File("6.png")));
+		button6.setGameIcon(icon6);
+		icon6.setGameButton(button6);
 		button6.addActionListener(listener);
 		add(button6, gc);
 		
 		gc.gridx = 2;
 		gc.gridy = 1;
 		
-		button7 = new GameButton(7);
-		button7.setIcon(iconList.remove(0));
+		button7 = new GameButton(7,2,1);
+		icon7 = new GameIcon(7,2,1);
+		icon7.setImage(ImageIO.read(new File("7.png")));
+		button7.setGameIcon(icon7);
+		icon7.setGameButton(button7);
 		button7.addActionListener(listener);
 		add(button7, gc);
 		
 		gc.gridx = 3;
 		gc.gridy = 1;
 		
-		button8 = new GameButton(8);
-		button8.setIcon(iconList.remove(0));
+		button8 = new GameButton(8,3,1);
+		icon8 = new GameIcon(8,3,1);
+		icon8.setImage(ImageIO.read(new File("8.png")));
+		button8.setGameIcon(icon8);
+		icon8.setGameButton(button8);
 		button8.addActionListener(listener);
 		add(button8, gc);
 		
@@ -138,32 +185,44 @@ public class GamePanel extends JPanel
 		gc.gridx = 0;
 		gc.gridy = 2;
 		
-		button9 = new GameButton(9);
-		button9.setIcon(iconList.remove(0));
+		button9 = new GameButton(9,0,2);
+		icon9 = new GameIcon(9,0,2);
+		icon9.setImage(ImageIO.read(new File("9.png")));
+		button9.setGameIcon(icon9);
+		icon9.setGameButton(button9);
 		button9.addActionListener(listener);
 		add(button9, gc);
 		
 		gc.gridx = 1;
 		gc.gridy = 2;
 		
-		button10 = new GameButton(10);
-		button10.setIcon(iconList.remove(0));
+		button10 = new GameButton(10,1,2);
+		icon10 = new GameIcon(10,1,2);
+		icon10.setImage(ImageIO.read(new File("10.png")));
+		button10.setGameIcon(icon10);
+		icon10.setGameButton(button10);
 		button10.addActionListener(listener);
 		add(button10, gc);
 		
 		gc.gridx = 2;
 		gc.gridy = 2;
 		
-		button11 = new GameButton(11);
-		button11.setIcon(iconList.remove(0));
+		button11 = new GameButton(11,2,2);
+		icon11 = new GameIcon(11,2,2);
+		icon11.setImage(ImageIO.read(new File("11.png")));
+		button11.setGameIcon(icon11);
+		icon11.setGameButton(button11);
 		button11.addActionListener(listener);
 		add(button11, gc);
 		
 		gc.gridx = 3;
 		gc.gridy = 2;
 		
-		button12 = new GameButton(12);
-		button12.setIcon(iconList.remove(0));
+		button12 = new GameButton(12,3,2);
+		icon12 = new GameIcon(12,3,2);
+		icon12.setImage(ImageIO.read(new File("12.png")));
+		button12.setGameIcon(icon12);
+		icon12.setGameButton(button12);
 		button12.addActionListener(listener);
 		add(button12, gc);
 		
@@ -172,42 +231,48 @@ public class GamePanel extends JPanel
 		gc.gridx = 0;
 		gc.gridy = 3;
 		
-		button13 = new GameButton(13);
-		button13.setIcon(iconList.remove(0));
+		button13 = new GameButton(13,0,3);
+		icon13 = new GameIcon(13,0,3);
+		icon13.setImage(ImageIO.read(new File("13.png")));
+		button13.setGameIcon(icon13);
+		icon13.setGameButton(button13);
 		button13.addActionListener(listener);
 		add(button13, gc);
 		
 		gc.gridx = 1;
 		gc.gridy = 3;
 		
-		button14 = new GameButton(14);
-		button14.setIcon(iconList.remove(0));
+		button14 = new GameButton(14,1,3);
+		icon14 = new GameIcon(14,1,3);
+		icon14.setImage(ImageIO.read(new File("14.png")));
+		button14.setGameIcon(icon14);
+		icon14.setGameButton(button14);
 		button14.addActionListener(listener);
 		add(button14, gc);
 		
 		gc.gridx = 2;
 		gc.gridy = 3;
 		
-		button15 = new GameButton(15);
-		button15.setIcon(iconList.remove(0));
+		button15 = new GameButton(15,2,3);
+		icon15 = new GameIcon(15,2,3);
+		icon15.setImage(ImageIO.read(new File("15.png")));
+		button15.setGameIcon(icon15);
+		icon15.setGameButton(button15);
 		button15.addActionListener(listener);
 		add(button15, gc);
 		
 		gc.gridx = 3;
 		gc.gridy = 3;
 		
-		button16 = new GameButton(16);
-		button16.setVisible(false);
+		button16 = new GameButton(16,3,3);
 		button16.addActionListener(listener);
+		button16.setVisible(false);
 		add(button16, gc);
 		
 		invisibleButton = button16;
 	}
 	
-	public String getPanelMessage()
-	{
-		return panelMessage;
-	}
+	
 	
 	
 	
@@ -215,9 +280,7 @@ public class GamePanel extends JPanel
 	
 	public void solve()
 	{
-		iconList2 = ilObject2.getIconList();
-		button1.setIcon(iconList2.remove(0));
-//		button1.setIcon(new ImageIcon("1.png"));
+		button1.setIcon(new ImageIcon("1.png"));
 		button1.setVisible(true);
 		button2.setIcon(new ImageIcon("2.png"));
 		button2.setVisible(true);
@@ -251,7 +314,41 @@ public class GamePanel extends JPanel
 		invisibleButton = button16;
 			
 	}
-	
+	public void gameWon()
+	{
+		button1.setBackground(Color.RED);
+		
+		button2.setBackground(Color.RED);
+		
+		button3.setBackground(Color.RED);
+		
+		button4.setBackground(Color.RED);
+		
+		button5.setBackground(Color.RED);
+		
+		button6.setBackground(Color.RED);
+		
+		button7.setBackground(Color.RED);
+		
+		button8.setBackground(Color.RED);
+		
+		button9.setBackground(Color.RED);
+		
+		button10.setBackground(Color.RED);
+		
+		button11.setBackground(Color.RED);
+		
+		button12.setBackground(Color.RED);
+		
+		button13.setBackground(Color.RED);
+		
+		button14.setBackground(Color.RED);
+		
+		button15.setBackground(Color.RED);
+		
+		
+		
+	}
 	
 	
 	
@@ -261,22 +358,66 @@ public class GamePanel extends JPanel
 		@Override
 		public void actionPerformed(ActionEvent e) 
 		{
-			
+			boolean win = false;
+			gameButtonList = new ArrayList<>();
 			GameButton button = (GameButton) e.getSource();
-			int value = button.getValue();
+			int value = button.getButtonValue();
 			
-			if((Math.abs(value - invisibleButton.getValue()) == 1) || (Math.abs(value - invisibleButton.getValue()) == 4))
+			if(((Math.abs(value - invisibleButton.getButtonValue()) == 1) || (Math.abs(value - invisibleButton.getButtonValue()) == 4))
+					&&((button.getButtonX() == invisibleButton.getButtonX()) || ((button.getButtonY() == invisibleButton.getButtonY()))))
 			{
-				invisibleButton.setIcon(button.getIcon());
+				invisibleButton.setGameIcon(button.getGameIcon());
 				invisibleButton.setVisible(true);
 				button.setIcon(null);
 				button.setVisible(false);
+				invisibleButton.getGameIcon().setGameButton(invisibleButton);
+				invisibleButton.getGameIcon().setIconX(invisibleButton.getButtonX());
+				invisibleButton.getGameIcon().setIconY(invisibleButton.getButtonY());
+				
 				invisibleButton = button;
 			}
-			if(invisibleButton.equals(button16))
+			
+			gameButtonList.add(button1);
+			gameButtonList.add(button2);
+			gameButtonList.add(button3);
+			gameButtonList.add(button4);
+			gameButtonList.add(button5);
+			gameButtonList.add(button6);
+			gameButtonList.add(button7);
+			gameButtonList.add(button8);
+			gameButtonList.add(button9);
+			gameButtonList.add(button10);
+			gameButtonList.add(button11);
+			gameButtonList.add(button12);
+			gameButtonList.add(button13);
+			gameButtonList.add(button14);
+			gameButtonList.add(button15);
+			gameButtonList.add(button16);
+			
+			for(GameButton b : gameButtonList)
 			{
-				if((button1.getIcon().toString().equalsIgnoreCase("1.png")) && (button2.getIcon().toString().equalsIgnoreCase("2.png")) && (button3.getIcon().toString().equalsIgnoreCase("3.png")) && (button4.getIcon().toString().equalsIgnoreCase("4.png")) && (button5.getIcon().toString().equalsIgnoreCase("5.png" )) && (button6.getIcon().toString().equalsIgnoreCase("6.png")) && (button7.getIcon().toString().equalsIgnoreCase("7.png")) && (button8.getIcon().toString().equalsIgnoreCase("8.png")) && (button9.getIcon().toString().equalsIgnoreCase("9.png")) && (button10.getIcon().toString().equalsIgnoreCase("10.png")) && (button11.getIcon().toString().equalsIgnoreCase("11.png")) && (button12.getIcon().toString().equalsIgnoreCase("12.png")) && (button13.getIcon().toString().equalsIgnoreCase("13.png")) && (button14.getIcon().toString().equalsIgnoreCase("14.png")) && (button15.getIcon().toString().equalsIgnoreCase("15.png")))
-					panelMessage = "You Win!";			
+				if(b.getGameIcon().getIconValue() == b.getButtonValue())
+					b.setBackground(Color.GREEN);
+			}
+			
+			for(int i=0; i<17; i++)
+			{
+				if(invisibleButton.equals(button16))
+				{
+					if(gameButtonList.get(i).getGameIcon() != null)
+					{
+						if(gameButtonList.get(i).getGameIcon().getIconValue() == gameButtonList.get(i).getButtonValue())
+						{
+							win = true;
+							break;
+						}					
+					}					
+				}
+			}
+			
+			if(win)
+			{
+				winGame.gameWon();
 			}
 			
 		}
