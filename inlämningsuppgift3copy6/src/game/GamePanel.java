@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -23,6 +24,7 @@ public class GamePanel extends JPanel
 {
 	
 	private List<GameButton> gameButtonList;
+	private List<GameButton> gameButtonList2;
 	
 	private WinGame winGame;
 		
@@ -270,6 +272,8 @@ public class GamePanel extends JPanel
 		add(button16, gc);
 		
 		invisibleButton = button16;
+		
+		//shuffle();
 	}
 	
 	
@@ -314,6 +318,94 @@ public class GamePanel extends JPanel
 		invisibleButton = button16;
 			
 	}
+	
+//	public void shuffle()
+//	{
+//		Random rand = new Random();
+//		
+//		gameButtonList2 = new ArrayList<>();
+//		gameButtonList2.add(button1);
+//		gameButtonList2.add(button2);
+//		gameButtonList2.add(button3);
+//		gameButtonList2.add(button4);
+//		gameButtonList2.add(button5);
+//		gameButtonList2.add(button6);
+//		gameButtonList2.add(button7);
+//		gameButtonList2.add(button8);
+//		gameButtonList2.add(button9);
+//		gameButtonList2.add(button10);
+//		gameButtonList2.add(button11);
+//		gameButtonList2.add(button12);
+//		gameButtonList2.add(button13);
+//		gameButtonList2.add(button14);
+//		gameButtonList2.add(button15);
+//		gameButtonList2.add(button16);
+//		
+//		int nowX = invisibleButton.getButtonX();
+//		int nowY = invisibleButton.getButtonY();
+//		int toX = 0;
+//		int toY = 0;
+//		GameButton toButton = null;
+//				
+//		int numberOfMoves = 900 + rand.nextInt(100);
+//		
+//		for(int i = 0; i<numberOfMoves; i++)
+//		{
+//			while(toButton.equals(null))
+//			{
+//				if(rand.nextBoolean())
+//				{
+//					
+//					if(rand.nextBoolean())
+//					{
+//						toX = nowX+1;
+//						toY = nowY;
+//					}
+//					else
+//					{
+//						toX = nowX;
+//						toY = nowY+1;
+//					}
+//				}
+//				else
+//				{
+//					
+//					if(rand.nextBoolean())
+//					{
+//						toX = nowX-1;
+//						toY = nowY;
+//					}
+//					else
+//					{
+//						toX = nowX;
+//						toY = nowY-1;
+//					}
+//				}
+//				
+//				for( int j=0; j<gameButtonList2.size(); j++)
+//				{
+//					if((gameButtonList2.get(j).getX() == toX) && (gameButtonList2.get(j).getY() == toY))
+//					{
+//						toButton = gameButtonList2.get(j);
+//						break;
+//					}
+//					else if((j == gameButtonList2.size()-1) && !((gameButtonList2.get(j).getX() == toX) && (gameButtonList2.get(j).getY() == toY)))
+//					{
+//						toButton = null;
+//					}
+//				}
+//				
+//			}
+//			invisibleButton.setGameIcon(toButton.getGameIcon());
+//			invisibleButton.setVisible(true);
+//			toButton.setGameIcon(null);
+//			toButton.setVisible(false);
+//			invisibleButton.getGameIcon().setGameButton(invisibleButton);
+//			invisibleButton.getGameIcon().setIconX(invisibleButton.getButtonX());
+//			invisibleButton.getGameIcon().setIconY(invisibleButton.getButtonY());
+//			invisibleButton = toButton;
+//		}
+//	}
 	public void gameWon()
 	{
 		button1.setBackground(Color.RED);
