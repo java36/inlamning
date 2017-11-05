@@ -62,6 +62,10 @@ public class OptionPanel extends JPanel
 			{
 				buttonListener.quit();
 			}
+			if(e.getSource() == shuffleBtn)
+			{
+				buttonListener.shuffle();
+			}
 			
 			if(e.getSource() == solveBtn)
 			{

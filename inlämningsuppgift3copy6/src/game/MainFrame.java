@@ -75,6 +75,12 @@ public class MainFrame extends JFrame implements ButtonListener, WinGame
 		optionPanel.stop();
 		
 	}
+
+	@Override
+	public void shuffle() 
+	{
+		gamePanel.shuffle();		
+	}
 	
 	
 	

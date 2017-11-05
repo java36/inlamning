@@ -369,34 +369,7 @@ public class GamePanel extends JPanel
 			
 			toButtonValue = 4*toY+toX;
 			toButton = (GameButton) getComponent(toButtonValue);
-			
-			
-//				for(int j=0; j<getComponentCount(); j++)
-//				{
-//					if(gameButtonArray[j].getButtonValue() == toButtonValue)
-//					{
-//						toButton = gameButtonArray[j];
-//						System.out.println(toButton.toString());
-//						toButton.setButtonValue(gameButtonArray[j].getButtonValue());
-//						break;
-//					}
-//				}
-			
-				
-//				for( int j=0; j<gameButtonList2.size(); j++)
-//				{
-//					if((gameButtonList2.get(j).getX() == toX) && (gameButtonList2.get(j).getY() == toY))
-//					{
-//						toButton = gameButtonList2.get(j);
-//						break;
-//					}
-//					else if((j == gameButtonList2.size()-1) && !((gameButtonList2.get(j).getX() == toX) && (gameButtonList2.get(j).getY() == toY)))
-//					{
-//						toButton = null;
-//					}
-//				}
-				
-				
+					
 			invisibleButton.setGameIcon(toButton.getGameIcon());
 			invisibleButton.setVisible(true);
 			toButton.setIcon(null);
