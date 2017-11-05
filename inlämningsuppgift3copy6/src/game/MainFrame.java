@@ -57,19 +57,22 @@ public class MainFrame extends JFrame implements ButtonListener, WinGame
 	{
 		gamePanel.stop();
 		optionPanel.stop();
-		messagePanel.setLabel("LOOOOOSER!");
+		messagePanel.setLabel("LOOOOOSER!!!");
 	}
 
 	@Override
 	public void solve() {
 		gamePanel.solve();
+		gamePanel.stop();
+		optionPanel.stop();
+		messagePanel.setLabel("YOU CHEATED!!!");
 		
 	}
 
 	@Override
 	public void gameWon() 
 	{
-		messagePanel.setLabel("You Win!!!");
+		messagePanel.setLabel("YOU WIN!!!");
 		gamePanel.gameWon();
 		gamePanel.stop();
 		optionPanel.stop();

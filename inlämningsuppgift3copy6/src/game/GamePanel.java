@@ -281,38 +281,55 @@ public class GamePanel extends JPanel
 	
 	public void solve()
 	{
-		button1.setIcon(new ImageIcon("1.png"));
+		button1.setGameIcon(icon1);
+		button1.setBackground(Color.RED);
+		
 		button1.setVisible(true);
-		button2.setIcon(new ImageIcon("2.png"));
+		button2.setGameIcon(icon2);
+		button2.setBackground(Color.RED);
+		
 		button2.setVisible(true);
-		button3.setIcon(new ImageIcon("3.png"));
+		button3.setGameIcon(icon3);
+		button3.setBackground(Color.RED);
+		
 		button3.setVisible(true);
-		button4.setIcon(new ImageIcon("4.png"));
+		button4.setGameIcon(icon4);
+		button4.setBackground(Color.RED);
 		button4.setVisible(true);
-		button5.setIcon(new ImageIcon("5.png"));
+		button5.setGameIcon(icon5);
+		button5.setBackground(Color.RED);
 		button5.setVisible(true);
-		button6.setIcon(new ImageIcon("6.png"));
+		button6.setGameIcon(icon6);
+		button6.setBackground(Color.RED);
 		button6.setVisible(true);
-		button7.setIcon(new ImageIcon("7.png"));
+		button7.setGameIcon(icon7);
+		button7.setBackground(Color.RED);
 		button7.setVisible(true);
-		button8.setIcon(new ImageIcon("8.png"));
+		button8.setGameIcon(icon8);
+		button8.setBackground(Color.RED);
 		button8.setVisible(true);
-		button9.setIcon(new ImageIcon("9.png"));
+		button9.setGameIcon(icon9);
+		button9.setBackground(Color.RED);
 		button9.setVisible(true);
-		button10.setIcon(new ImageIcon("10.png"));
+		button10.setGameIcon(icon10);
+		button10.setBackground(Color.RED);
 		button10.setVisible(true);
-		button11.setIcon(new ImageIcon("11.png"));
+		button11.setGameIcon(icon11);
+		button11.setBackground(Color.RED);
 		button11.setVisible(true);
-		button12.setIcon(new ImageIcon("12.png"));
+		button12.setGameIcon(icon12);
+		button12.setBackground(Color.RED);
 		button12.setVisible(true);
-		button13.setIcon(new ImageIcon("13.png"));
+		button13.setGameIcon(icon13);
+		button13.setBackground(Color.RED);
 		button13.setVisible(true);
-		button14.setIcon(new ImageIcon("14.png"));
+		button14.setGameIcon(icon14);
+		button14.setBackground(Color.RED);
 		button14.setVisible(true);
-		button15.setIcon(new ImageIcon("15.png"));
+		button15.setGameIcon(icon15);
+		button15.setBackground(Color.RED);
 		button15.setVisible(true);
 		button16.setVisible(false);
-		invisibleButton = button16;
 		
 			
 	}
