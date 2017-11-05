@@ -396,38 +396,21 @@ public class GamePanel extends JPanel
 	
 	public void gameWon()
 	{
-		button1.setBackground(Color.RED);
-		
-		button2.setBackground(Color.RED);
-		
-		button3.setBackground(Color.RED);
-		
-		button4.setBackground(Color.RED);
-		
-		button5.setBackground(Color.RED);
-		
-		button6.setBackground(Color.RED);
-		
-		button7.setBackground(Color.RED);
-		
-		button8.setBackground(Color.RED);
-		
-		button9.setBackground(Color.RED);
-		
-		button10.setBackground(Color.RED);
-		
-		button11.setBackground(Color.RED);
-		
-		button12.setBackground(Color.RED);
-		
-		button13.setBackground(Color.RED);
-		
-		button14.setBackground(Color.RED);
-		
+		button1.setBackground(Color.RED);		
+		button2.setBackground(Color.RED);		
+		button3.setBackground(Color.RED);		
+		button4.setBackground(Color.RED);		
+		button5.setBackground(Color.RED);		
+		button6.setBackground(Color.RED);		
+		button7.setBackground(Color.RED);		
+		button8.setBackground(Color.RED);		
+		button9.setBackground(Color.RED);		
+		button10.setBackground(Color.RED);		
+		button11.setBackground(Color.RED);		
+		button12.setBackground(Color.RED);		
+		button13.setBackground(Color.RED);		
+		button14.setBackground(Color.RED);		
 		button15.setBackground(Color.RED);
-		
-		
-		
 	}
 	public void stop()
 	{
@@ -459,21 +442,21 @@ public class GamePanel extends JPanel
 		{
 			int isMatch = 0;
 			gameButtonList = new ArrayList<>();
-			GameButton button = (GameButton) e.getSource();
-			int value = button.getButtonValue();
+			GameButton clickedButton = (GameButton) e.getSource();
+			int value = clickedButton.getButtonValue();
 			
 			if(((Math.abs(value - invisibleButton.getButtonValue()) == 1) || (Math.abs(value - invisibleButton.getButtonValue()) == 4))
-					&&((button.getButtonX() == invisibleButton.getButtonX()) || ((button.getButtonY() == invisibleButton.getButtonY()))))
+					&&((clickedButton.getButtonX() == invisibleButton.getButtonX()) || ((clickedButton.getButtonY() == invisibleButton.getButtonY()))))
 			{
-				invisibleButton.setGameIcon(button.getGameIcon());
+				invisibleButton.setGameIcon(clickedButton.getGameIcon());
 				invisibleButton.setVisible(true);
-				button.setIcon(null);
-				button.setVisible(false);
+				clickedButton.setIcon(null);
+				clickedButton.setVisible(false);
 				invisibleButton.getGameIcon().setGameButton(invisibleButton);
 				invisibleButton.getGameIcon().setIconX(invisibleButton.getButtonX());
 				invisibleButton.getGameIcon().setIconY(invisibleButton.getButtonY());
 				
-				invisibleButton = button;
+				invisibleButton = clickedButton;
 			}
 			
 			gameButtonList.add(button1);
