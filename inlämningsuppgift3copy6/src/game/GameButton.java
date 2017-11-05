@@ -22,10 +22,19 @@ public class GameButton extends JButton
 	{
 		return buttonX;
 	}
+	public void setButtonX(int buttonX)
+	{
+		this.buttonX = buttonX;
+	}
 
 	public int getButtonY() 
 	{
 		return buttonY;
+	}
+	
+	public void setButtonY(int buttonY)
+	{
+		this.buttonY = buttonY;
 	}
 
 	public void setButtonValue(int value)

@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -24,7 +25,9 @@ public class GamePanel extends JPanel
 {
 	
 	private List<GameButton> gameButtonList;
-	private List<GameButton> gameButtonList2;
+	
+	private GridBagLayout gbl = new GridBagLayout();
+	private GridBagConstraints gc = new GridBagConstraints();
 	
 	private WinGame winGame;
 		
@@ -76,13 +79,13 @@ public class GamePanel extends JPanel
 	public GamePanel() throws IOException
 	{
 		setBackground(Color.WHITE);
-		setLayout(new GridBagLayout());
+		setLayout(gbl);
 		setSize(360,250);
 		
 		
 		
 		
-		GridBagConstraints gc = new GridBagConstraints();
+		
 		gc.weightx = 1;
 		gc.weighty = 1;
 		gc.fill = GridBagConstraints.NONE;
@@ -273,14 +276,8 @@ public class GamePanel extends JPanel
 		
 		invisibleButton = button16;
 		
-		//shuffle();
+		shuffle();
 	}
-	
-	
-	
-	
-	
-	
 	
 	public void solve()
 	{
@@ -316,72 +313,76 @@ public class GamePanel extends JPanel
 		button15.setVisible(true);
 		button16.setVisible(false);
 		invisibleButton = button16;
+		
 			
 	}
 	
-//	public void shuffle()
-//	{
-//		Random rand = new Random();
-//		
-//		gameButtonList2 = new ArrayList<>();
-//		gameButtonList2.add(button1);
-//		gameButtonList2.add(button2);
-//		gameButtonList2.add(button3);
-//		gameButtonList2.add(button4);
-//		gameButtonList2.add(button5);
-//		gameButtonList2.add(button6);
-//		gameButtonList2.add(button7);
-//		gameButtonList2.add(button8);
-//		gameButtonList2.add(button9);
-//		gameButtonList2.add(button10);
-//		gameButtonList2.add(button11);
-//		gameButtonList2.add(button12);
-//		gameButtonList2.add(button13);
-//		gameButtonList2.add(button14);
-//		gameButtonList2.add(button15);
-//		gameButtonList2.add(button16);
-//		
-//		int nowX = invisibleButton.getButtonX();
-//		int nowY = invisibleButton.getButtonY();
-//		int toX = 0;
-//		int toY = 0;
-//		GameButton toButton = null;
-//				
-//		int numberOfMoves = 900 + rand.nextInt(100);
-//		
-//		for(int i = 0; i<numberOfMoves; i++)
-//		{
-//			while(toButton.equals(null))
-//			{
-//				if(rand.nextBoolean())
+	public void shuffle()
+	{
+		Random rand = new Random();
+		
+				
+		int numberOfMoves = 900 + rand.nextInt(100);
+		
+		
+		
+		for(int i = 0; i<numberOfMoves; i++)
+		{
+			int nowX = invisibleButton.getButtonX();
+			int nowY = invisibleButton.getButtonY();
+			int toX = 0;
+			int toY = 0;
+			int toButtonValue = 0; 
+			GameButton toButton = new GameButton();
+			
+			do
+			{
+				if(rand.nextBoolean())
+				{
+					
+					if(rand.nextBoolean())
+					{
+						toX = nowX+1;
+						toY = nowY;
+					}
+					else
+					{
+						toX = nowX;
+						toY = nowY+1;
+					}
+				}
+				else
+				{
+					
+					if(rand.nextBoolean())
+					{
+						toX = nowX-1;
+						toY = nowY;
+					}
+					else
+					{
+						toX = nowX;
+						toY = nowY-1;
+					}
+				}
+			}while(!((toX >= 0 && toX <=3) && (toY >=0 && toY <=3)));
+			
+			toButtonValue = 4*toY+toX;
+			toButton = (GameButton) getComponent(toButtonValue);
+			
+			
+//				for(int j=0; j<getComponentCount(); j++)
 //				{
-//					
-//					if(rand.nextBoolean())
+//					if(gameButtonArray[j].getButtonValue() == toButtonValue)
 //					{
-//						toX = nowX+1;
-//						toY = nowY;
-//					}
-//					else
-//					{
-//						toX = nowX;
-//						toY = nowY+1;
+//						toButton = gameButtonArray[j];
+//						System.out.println(toButton.toString());
+//						toButton.setButtonValue(gameButtonArray[j].getButtonValue());
+//						break;
 //					}
 //				}
-//				else
-//				{
-//					
-//					if(rand.nextBoolean())
-//					{
-//						toX = nowX-1;
-//						toY = nowY;
-//					}
-//					else
-//					{
-//						toX = nowX;
-//						toY = nowY-1;
-//					}
-//				}
-//				
+			
+				
 //				for( int j=0; j<gameButtonList2.size(); j++)
 //				{
 //					if((gameButtonList2.get(j).getX() == toX) && (gameButtonList2.get(j).getY() == toY))
@@ -394,18 +395,23 @@ public class GamePanel extends JPanel
 //						toButton = null;
 //					}
 //				}
-//				
-//			}
-//			invisibleButton.setGameIcon(toButton.getGameIcon());
-//			invisibleButton.setVisible(true);
-//			toButton.setGameIcon(null);
-//			toButton.setVisible(false);
-//			invisibleButton.getGameIcon().setGameButton(invisibleButton);
-//			invisibleButton.getGameIcon().setIconX(invisibleButton.getButtonX());
-//			invisibleButton.getGameIcon().setIconY(invisibleButton.getButtonY());
-//			invisibleButton = toButton;
-//		}
-//	}
+				
+				
+			invisibleButton.setGameIcon(toButton.getGameIcon());
+			invisibleButton.setVisible(true);
+			toButton.setIcon(null);
+			toButton.setVisible(false);
+			invisibleButton.getGameIcon().setGameButton(invisibleButton);
+			invisibleButton.getGameIcon().setIconX(invisibleButton.getButtonX());
+			invisibleButton.getGameIcon().setIconY(invisibleButton.getButtonY());
+			invisibleButton = toButton;
+			invisibleButton.setButtonX(toButton.getButtonX());
+			invisibleButton.setButtonY(toButton.getButtonY());
+			invisibleButton.setButtonValue(toButton.getButtonValue());
+		}
+		
+	}
+	
 	public void gameWon()
 	{
 		button1.setBackground(Color.RED);
@@ -504,6 +510,7 @@ public class GamePanel extends JPanel
 			gameButtonList.add(button14);
 			gameButtonList.add(button15);
 			gameButtonList.add(button16);
+			
 			
 			for(GameButton b : gameButtonList)
 			{
