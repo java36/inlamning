@@ -6,6 +6,7 @@ public interface ButtonListener
 	public void quit();
 	public void shuffle();
 	public void solve();
+	public void gameWon();
 	
 
 }

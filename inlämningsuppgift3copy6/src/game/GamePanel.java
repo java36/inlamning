@@ -24,7 +24,7 @@ public class GamePanel extends JPanel
 	private GridBagLayout gbl = new GridBagLayout();
 	private GridBagConstraints gc = new GridBagConstraints();
 	
-	private WinGame winGame;
+	private ButtonListener buttonListener;
 		
 	private GameButton button1;
 	private GameButton button2;
@@ -64,9 +64,9 @@ public class GamePanel extends JPanel
 	//Object of the ActionListener class
 	Listener listener = new Listener();
 	
-	public void setWinGame(WinGame winGame)
+	public void setButtonListener(ButtonListener buttonListener)
 	{
-		this.winGame = winGame;
+		this.buttonListener = buttonListener;
 	}
 	
 	
@@ -522,7 +522,7 @@ public class GamePanel extends JPanel
 			
 			if(isMatch == 15)
 			{
-				winGame.gameWon();
+				buttonListener.gameWon();
 				
 			}
 			

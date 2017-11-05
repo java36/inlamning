@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-public class MainFrame extends JFrame implements ButtonListener, WinGame
+public class MainFrame extends JFrame implements ButtonListener
 {
 	
 	private GamePanel gamePanel;
@@ -27,7 +27,7 @@ public class MainFrame extends JFrame implements ButtonListener, WinGame
 		add(optionPanel, BorderLayout.NORTH);
 				
 		gamePanel = new GamePanel();
-		gamePanel.setWinGame(this);
+		gamePanel.setButtonListener(this);
 		add(gamePanel, BorderLayout.CENTER);
 		
 		messagePanel = new MessagePanel();
